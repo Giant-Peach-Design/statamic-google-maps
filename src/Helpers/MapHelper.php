@@ -54,13 +54,12 @@ class MapHelper
             'showControls' => $showControls,
         ] = $params;
 
-        // Return the HTML
-        return '
+        $html = '
         <div id="' . $id . '" style="width: ' . $width . '; height: ' . $height . ';"></div>
         <script>
         window.addEventListener("load", function() {
             let map = new google.maps.Map(document.getElementById("' . $id . '"), {
-                center: { lat: ' . $lat. ', lng: ' . $lng . ' },
+                center: { lat: ' . $lat . ', lng: ' . $lng . ' },
                 zoom: ' . $zoom . ',
                 disableDefaultUI: ' . (!empty($showControls) ? 'false' : 'true') . ',
                 mapTypeId: "' . $type . '",
@@ -83,5 +82,10 @@ class MapHelper
         })
         </script>
         ';
+
+        $response = $params;
+        $response['html'] = $html;
+
+        return $response;
     }
 }
