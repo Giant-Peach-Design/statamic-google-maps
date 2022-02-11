@@ -49,6 +49,51 @@ class Map extends Tags
         ]);
     }
 
+    public function zoom()
+    {
+        return $this->getZoom();
+    }
+
+    public function centerLat()
+    {
+        return $this->params->get('lat');
+    }
+
+    public function centerLng()
+    {
+        return  $this->params->get('lng');
+    }
+
+    public function markerLat()
+    {
+        return $this->getMarkerLat();
+    }
+
+    public function markerLng()
+    {
+        return $this->getMarkerLng();
+    }
+
+    public function type()
+    {
+        return $this->getType();
+    }
+
+    public function icon()
+    {
+        return $this->getIcon();
+    }
+
+    public function style()
+    {
+        return $this->getStyle();
+    }
+
+    public function showControls()
+    {
+        return $this->showControls();
+    }
+
     protected function getZoom()
     {
         return $this->params->get('zoom', 16);
